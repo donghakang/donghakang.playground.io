@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Chomsky';
+  src: url('fonts/Chomsky.woff') format('woff'),
+    url('fonts/Chomsky.woff2') format('woff2');
+  /* 이런식으로 weight를 지정해서 사용할 수도 있다!*/
+  font-weight: 400;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
