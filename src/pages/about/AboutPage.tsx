@@ -4,42 +4,14 @@ import Environment from '../../components/environment'
 import Layout from '../../components/layout'
 import { motion } from 'framer-motion'
 import { useProgress } from '@react-three/drei'
-
-const parentVariant = {
-  hidden: { opacity: 1 },
-  visible: {
-    delay: 0.5,
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      ease: 'easeInOut',
-      // type: 'tween',
-    },
-  },
-}
-
-const itemVariant = {
-  hidden: { rotateX: -90 },
-  visible: {
-    rotateX: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
-}
-
-const blackVariant = {
-  hidden: { width: 0 },
-  visible: {
-    width: '100%',
-    transition: {
-      delay: 1.2,
-      duration: 0.5,
-      ease: 'easeInOut',
-      // type: 'tween',
-    },
-  },
-}
+import * as Styled from './style'
+import {
+  itemVariant,
+  parentVariant,
+  blackVariant,
+  environmentCss,
+} from './style'
+import Loader from '../../components/loader'
 
 const AboutPage: React.FC = () => {
   const progress = useProgress()
@@ -49,94 +21,33 @@ const AboutPage: React.FC = () => {
   return (
     <>
       {progress.active && progress.progress !== 100 ? (
-        <div>Loading.</div>
+        <Loader />
       ) : (
         <Layout>
-          <div
-            css={css`
-              width: 70vw;
-              height: 100vh;
-              position: absolute;
-              top: 0;
-              left: 0;
-            `}
-          >
+          <div css={environmentCss}>
             <Environment />
           </div>
-          <div
-            css={css`
-              width: 100%;
-              height: 100vh;
-              display: flex;
-              justify-content: center;
-              font-family: 'Inter';
-            `}
-          >
-            <div>
+          <Styled.AboutContainer>
+            <div className="about-wrapper">
               <motion.div
                 variants={parentVariant}
                 initial="hidden"
                 animate="visible"
-                css={css`
-                  /* position: absolute; */
-                  line-height: 6rem;
-                  padding: 1rem;
-                `}
               >
-                <motion.h1
-                  variants={itemVariant}
-                  css={css`
-                    margin-top: 5rem;
-                    font-size: 7rem;
-                    font-weight: 900;
-                    text-align: right;
-                    text-transform: uppercase;
-                  `}
-                >
+                <motion.h1 className="item-title" variants={itemVariant}>
                   Creative Developer
                 </motion.h1>
-                <motion.h1
-                  variants={itemVariant}
-                  css={css`
-                    font-weight: 900;
-                    font-size: 7rem;
-                    text-align: right;
-                    text-transform: uppercase;
-                  `}
-                >
+                <motion.h1 className="item-title" variants={itemVariant}>
                   FE Developer
                 </motion.h1>
                 <motion.div
                   variants={blackVariant}
-                  css={css`
-                    display: flex;
-                    justify-content: center;
-                    /* width: 10px; */
-                    margin: 2rem 0;
-                    height: 6rem;
-                    background-color: black;
-                  `}
+                  className="black-line thick"
                 ></motion.div>
-                <motion.h1
-                  variants={itemVariant}
-                  css={css`
-                    font-weight: 900;
-                    font-size: 7rem;
-                    text-align: right;
-                    text-transform: uppercase;
-                  `}
-                >
+                <motion.h1 className="item-title" variants={itemVariant}>
                   Based, Seoul
                 </motion.h1>
-                <motion.h1
-                  variants={itemVariant}
-                  css={css`
-                    font-weight: 900;
-                    font-size: 7rem;
-                    text-align: right;
-                    text-transform: uppercase;
-                  `}
-                >
+                <motion.h1 className="item-title" variants={itemVariant}>
                   <span
                     onMouseOver={() => setHoverMN(true)}
                     onMouseOut={() => setHoverMN(false)}
@@ -163,40 +74,11 @@ const AboutPage: React.FC = () => {
                 </motion.h1>
                 <motion.div
                   variants={blackVariant}
-                  css={css`
-                    display: flex;
-                    justify-content: center;
-                    /* width: 10px; */
-                    margin: 2rem 0;
-                    height: 3rem;
-                    background-color: black;
-                  `}
+                  className="black-line thin"
                 ></motion.div>
               </motion.div>
-              <div
-                css={css`
-                  width: 100%;
-                  position: relative;
-                  z-index: 10;
-                  padding: 1rem;
-                `}
-              >
-                <ul
-                  css={css`
-                    display: flex;
-                    justify-content: space-around;
-                    list-style-type: none;
-
-                    li {
-                      a {
-                        text-decoration: none;
-                        color: black;
-                        font-size: 1.25rem;
-                        font-weight: 600;
-                      }
-                    }
-                  `}
-                >
+              <div className="contact-container">
+                <ul className="web-view">
                   <li>
                     <a href={'https://www.instagram.com/donghakang/'}>
                       INSTAGRAM
@@ -212,9 +94,23 @@ const AboutPage: React.FC = () => {
                     <a href={'mailto:dkang0602@gmail.com'}>MAIL</a>
                   </li>
                 </ul>
+                <ul className="phone-view">
+                  <li>
+                    <a href={'https://www.instagram.com/donghakang/'}>I</a>
+                  </li>
+                  <li>
+                    <a href={'https://github.com/donghakang'}>G</a>
+                  </li>
+                  <li>
+                    <a href={'https://donghakang.github.io'}>B</a>
+                  </li>
+                  <li>
+                    <a href={'mailto:dkang0602@gmail.com'}>M</a>
+                  </li>
+                </ul>
               </div>
             </div>
-          </div>
+          </Styled.AboutContainer>
         </Layout>
       )}
     </>

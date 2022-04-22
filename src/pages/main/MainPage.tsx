@@ -4,12 +4,12 @@ import Layout from '../../components/layout'
 
 const MainPage: React.FC = () => {
   const data = [
-    { top: '40%', left: '70%', width: '350px', height: '200px' },
-    { top: '30%', left: '60%', width: '100px', height: '100px' },
-    { top: '60%', left: '50%', width: '250px', height: '200px' },
-    { top: '20%', left: '10%', width: '150px', height: '100px' },
-    { top: '60%', left: '20%', width: '350px', height: '100px' },
-    { top: '10%', left: '30%', width: '250px', height: '250px' },
+    { top: '40%', left: '70%', width: '25vw', height: '25vh' },
+    { top: '30%', left: '60%', width: '8vh', height: '8vh' },
+    { top: '60%', left: '50%', width: '20vw', height: '20vh' },
+    { top: '20%', left: '10%', width: '9vw', height: '9vh' },
+    { top: '60%', left: '20%', width: '25vw', height: '10vw' },
+    { top: '10%', left: '30%', width: '12vw', height: '12vw' },
   ]
   const [isLoading, setIsLoading] = useState(true)
 
@@ -85,12 +85,21 @@ const MainPage: React.FC = () => {
                 letter-spacing: 1.125rem;
                 font-size: 3rem;
                 font-family: 'Inter';
+
+                @media only screen and (max-width: 768px) {
+                  letter-spacing: 0.75rem;
+                  font-size: 1.5rem;
+                }
               `}
             >
               <span
                 css={css`
                   font-family: 'Chomsky';
                   font-size: 3.25rem;
+
+                  @media only screen and (max-width: 768px) {
+                    font-size: 1.75rem;
+                  }
                 `}
               >
                 D
@@ -100,6 +109,10 @@ const MainPage: React.FC = () => {
                 css={css`
                   font-family: 'Chomsky';
                   font-size: 3.25rem;
+
+                  @media only screen and (max-width: 768px) {
+                    font-size: 1.75rem;
+                  }
                 `}
               >
                 H
@@ -109,6 +122,10 @@ const MainPage: React.FC = () => {
                 css={css`
                   font-family: 'Chomsky';
                   font-size: 3.25rem;
+
+                  @media only screen and (max-width: 768px) {
+                    font-size: 1.75rem;
+                  }
                 `}
               >
                 K
