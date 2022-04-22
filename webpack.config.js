@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // mode
 const mode = process.env.NODE_ENV || 'development'
@@ -81,5 +82,17 @@ module.exports = {
           : false,
     }),
     new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(PUBLIC_DIR, 'assets'),
+          to: path.join(DIST_DIR, 'assets'),
+        },
+        {
+          from: path.join(PUBLIC_DIR, 'fonts'),
+          to: path.join(DIST_DIR, 'fonts'),
+        },
+      ],
+    }),
   ],
 }
