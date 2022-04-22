@@ -28,8 +28,9 @@ const MainPage: React.FC = () => {
           max-height: 100%;
         `}
       >
-        {data.map(({ top, left, width, height }) => (
+        {data.map(({ top, left, width, height }, index) => (
           <div
+            key={index}
             className="background"
             css={css`
               position: absolute;
@@ -83,10 +84,36 @@ const MainPage: React.FC = () => {
               css={css`
                 letter-spacing: 1.125rem;
                 font-size: 3rem;
-                font-family: 'Chomsky';
+                font-family: 'Inter';
               `}
             >
-              DONGHA KANG
+              <span
+                css={css`
+                  font-family: 'Chomsky';
+                  font-size: 3.25rem;
+                `}
+              >
+                D
+              </span>
+              <span>ONG</span>
+              <span
+                css={css`
+                  font-family: 'Chomsky';
+                  font-size: 3.25rem;
+                `}
+              >
+                H
+              </span>
+              A{' '}
+              <span
+                css={css`
+                  font-family: 'Chomsky';
+                  font-size: 3.25rem;
+                `}
+              >
+                K
+              </span>
+              ANG
             </h1>
           </div>
         </div>

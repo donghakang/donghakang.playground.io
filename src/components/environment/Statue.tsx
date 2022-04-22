@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 import { GLTF } from 'three-stdlib'
-import { useFrame } from '@react-three/fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -39,18 +39,18 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   // TODO: type any is not good
   const group = useRef<any>()
   const { nodes } = useGLTF('assets/statue.gltf') as GLTFResult
-
   useFrame((state, delta) => {
     if (group.current !== undefined) {
       group.current.rotation.y += 0.01
     }
   })
 
+  //
   return (
     <group ref={group} dispose={null}>
       <group {...props} rotation={[-Math.PI / 2, 0, 0]}>
         <group
-          position={[14.62, -19.29, -0.93]}
+          position={[15.5, -19.29, 0]}
           rotation={[Math.PI / 2, -0.21, -Math.PI / 3]}
         >
           <group position={[-11.35, -22.63, -4.5]}>

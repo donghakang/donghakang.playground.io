@@ -6,9 +6,14 @@ import Statue from './Statue'
 const Environment: React.FC = () => {
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Canvas style={{ width: '100vw', height: '100vh' }}>
-          <Statue position={[0, 0, -1.2]} scale={0.07} />
+      <Suspense fallback={null}>
+        <Canvas
+          style={{
+            width: '100%',
+            height: '100%',
+          }}
+        >
+          <Statue position={[0, 1.4, -2.3]} scale={0.15} />
 
           <group>
             <directionalLight
